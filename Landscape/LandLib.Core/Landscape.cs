@@ -164,6 +164,7 @@ namespace IntroGH.LandLib.Core {
                 if (thispt.Z >= MinimalHeight) { return thispt; }
                 }
 
+
             return Point3d.Unset;
             }
 
