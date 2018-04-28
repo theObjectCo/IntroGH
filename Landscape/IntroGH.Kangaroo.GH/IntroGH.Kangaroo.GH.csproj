@@ -58,8 +58,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ChargeGoal.cs" />
-    <Compile Include="FrictionFloor.cs" />
+    <Compile Include="ChargeGoal_Component.cs" />
+    <Compile Include="FrictionFloor_Component.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

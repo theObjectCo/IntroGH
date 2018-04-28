@@ -7,10 +7,10 @@ using Grasshopper.Kernel;
 using Rhino.Geometry;
 
 namespace IntroGH.Kangaroo.GH {
-    public class ChargeGoal : GH_Component {
+    public class ChargeGoal_Component : GH_Component {
 
         //constructor 
-        public ChargeGoal() : base("Charge Goal", "CGoal","Charge goal", "Extra", "Goals") { }
+        public ChargeGoal_Component() : base("Charge Goal", "CGoal","Charge goal", "Extra", "Goals") { }
         
         //component id number 
         public override Guid ComponentGuid => new Guid("{A059716F-3EEF-46D5-9483-E1B85621DB83}");
