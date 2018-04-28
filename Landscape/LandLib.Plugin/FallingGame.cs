@@ -9,7 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 
-namespace LandLib.Plugin {
+namespace IntroGH.LandLib.Plugin {
     public class FallingGame : GH_Component {
 
         public FallingGame() : base("Falling Game", "Falling Game", "The last one standing", "Landscape", "Games") {

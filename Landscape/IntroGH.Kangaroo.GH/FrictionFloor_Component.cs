@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Rhino.Geometry; 
 
-namespace LandLib.Plugin {
+namespace IntroGH.Kangaroo.GH {
    public class FrictionFloor : GH_Component { //components are always public !!!
 
         public FrictionFloor() : base("Friction Floor", "FFloor", "Friction floor", "Extra", "Goals") {; }

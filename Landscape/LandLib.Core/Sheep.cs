@@ -15,6 +15,7 @@ namespace IntroGH.LandLib.Core {
         private Random rnd = null;
         public bool falling = false;
         private double scale = 1.0;
+        private int seed = 123; 
 
         /// <summary>
         /// Default constructor.
@@ -25,17 +26,36 @@ namespace IntroGH.LandLib.Core {
         public Sheep(Plane position, Mesh geometry, int Seed) {
             this.position = position;
             this.geometry = geometry.DuplicateMesh();
-            this.geometry.Transform(Transform.PlaneToPlane(Plane.WorldXY, position));
+            this.geometry.Transform(Rhino.Geometry.Transform.PlaneToPlane(Plane.WorldXY, position));
             this.rnd = new Random(Seed);
+            this.seed = Seed; 
             }
 
+        /// <summary>
+        /// Returns an almost-exact-duplicate. 
+        /// </summary>
+        /// <returns></returns>
+        public Sheep Duplicate() {
+            Sheep newSheep = new Sheep(this.position, this.geometry, this.seed);
+            return newSheep; 
+            }
+
+        /// <summary>
+        /// Transforms the current geometry and position. 
+        /// </summary>
+        /// <param name="xform"></param>
+        public void Transform(Rhino.Geometry.Transform xform) {
+            this.position.Transform(xform);
+            this.geometry.Transform(xform); 
+            }
+        
         /// <summary>
         /// Get the current Sheep geometry.
         /// </summary>
         /// <returns></returns>
         public Mesh GetGeometry() {
             Mesh dup = this.geometry.DuplicateMesh();
-            dup.Transform(Transform.Scale(position.Origin, scale));
+            dup.Transform(Rhino.Geometry.Transform.Scale(position.Origin, scale));
             return dup;
             }
         
@@ -53,8 +73,7 @@ namespace IntroGH.LandLib.Core {
                 Walk(world);
                 }
             }
-
-
+        
         /// <summary>
         /// Updates if the Sheep is going to Fall.
         /// </summary>
@@ -76,7 +95,7 @@ namespace IntroGH.LandLib.Core {
             position.Origin = new Point3d(position.Origin.X, position.Origin.Y, Math.Max(minz, position.Origin.Z - 1));
 
             //create transform
-            Transform trans = Transform.PlaneToPlane(oldPosition, position);
+            Transform trans = Rhino.Geometry.Transform.PlaneToPlane(oldPosition, position);
 
             //transform geometry
             this.geometry.Transform(trans);
@@ -125,7 +144,7 @@ namespace IntroGH.LandLib.Core {
                 }
 
             //create transform
-            Transform trans = Transform.PlaneToPlane(oldPosition, position);
+            Transform trans = Rhino.Geometry.Transform.PlaneToPlane(oldPosition, position);
 
             //transform geometry
             this.geometry.Transform(trans);
