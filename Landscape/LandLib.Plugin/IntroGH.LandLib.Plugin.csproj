@@ -59,10 +59,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AddComp.cs" />
-    <Compile Include="ChargeGoal.cs" />
-    <Compile Include="FrictionFloor.cs" />
     <Compile Include="FallingGame.cs" />
+    <Compile Include="GH_Sheep.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

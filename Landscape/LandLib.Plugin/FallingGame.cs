@@ -1,6 +1,6 @@
 ﻿using Grasshopper.Kernel;
 using Grasshopper.Kernel.Parameters;
-using LandLib.Core;
+using IntroGH.LandLib.Core;
 using Rhino.Geometry;
 using System;
 using System.Collections.Generic;
@@ -21,7 +21,6 @@ namespace LandLib.Plugin {
             pManager.AddIntegerParameter("Seed", "S", "Randomness seed", GH_ParamAccess.item);
             pManager.AddMeshParameter("Tree", "T", "Tree geometry", GH_ParamAccess.item);
             pManager.AddMeshParameter("Sheep", "S", "Sheep geometry", GH_ParamAccess.item);
-            pManager.AddParameter(new Param_FilePath());
             }
 
         protected override void RegisterOutputParams(GH_OutputParamManager pManager) {
@@ -41,30 +40,17 @@ namespace LandLib.Plugin {
             int thisSeed = 0;
             Mesh tree = null;
             Mesh sheep = null;
-            string filePath = "";
 
             //getting data 
             if (!(DA.GetData(0, ref thisSeed))) {
-                //destroy the world 
-                if (myWorld != null) { myWorld.Dispose(); }
                 myWorld = null;
                 }
 
             if (!(DA.GetData(1, ref tree))) {
-                //destroy the world 
-                if (myWorld != null) { myWorld.Dispose(); }
                 myWorld = null;
                 }
 
             if (!(DA.GetData(2, ref sheep))) {
-                //destroy the world 
-                if (myWorld != null) { myWorld.Dispose(); }
-                myWorld = null;
-                }
-
-            if (!(DA.GetData(3, ref filePath))) {
-                //destroy the world 
-                if (myWorld != null) { myWorld.Dispose(); }
                 myWorld = null;
                 }
 
@@ -74,8 +60,6 @@ namespace LandLib.Plugin {
                 //update the seed 
                 mySeed = thisSeed;
 
-                //destroy the world
-                if (myWorld != null) { myWorld.Dispose(); }
                 myWorld = null;
 
                 //variables for the new world
@@ -87,7 +71,7 @@ namespace LandLib.Plugin {
                 double sheepPerSQM = (rnd.NextDouble() * 0.002) + 0.002;
 
                 //create a new world
-                myWorld = new Landscape(width, depth, height, tree, sheep, filePath, sheepPerSQM, mySeed);
+                myWorld = new Landscape(width, depth, height, tree, sheep, sheepPerSQM, mySeed);
                 myWorld.Generate(); //bug 1
                 }
 
@@ -126,9 +110,8 @@ namespace LandLib.Plugin {
                 DA.SetData(4, myWorld.GetSheeps()); //change the param access to item in the registerinputparams method.
 
                 }
-            
-            }
 
+            }
         }
     }
 

@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace LandLib.Core {
+namespace IntroGH.LandLib.Core {
 
     public class Sheep {
 
@@ -83,13 +83,6 @@ namespace LandLib.Core {
 
             //reduce scale
             scale = Math.Max(0.2, scale * 0.9);
-
-            if (!(minz == position.Origin.Z)) {
-                //make sound
-                if (rnd.NextDouble() < 0.01) {
-                    world.sheepPlayer.Play();
-                    }
-                }
             }
 
         private void Walk(Landscape world) {
@@ -140,11 +133,6 @@ namespace LandLib.Core {
             //reduce scale
             scale = Math.Max(1, scale * 0.9);
 
-            //make sound
-            if (rnd.NextDouble() < 0.001) {
-                scale = 2;
-                world.sheepPlayer.Play();
-                }
             }
         }
     }

@@ -5,9 +5,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace LandLib.Core {
+namespace IntroGH.LandLib.Core {
 
-    public class Landscape : IDisposable{
+    public class Landscape{
 
         //fields
         public double width, height, depth, waterLevel, sheepPerSQM;
@@ -20,9 +20,6 @@ namespace LandLib.Core {
         public Mesh water = null;
         public List<Sheep> sheeps = new List<Sheep>();
 
-        //sound player for the sheeps
-        public System.Media.SoundPlayer sheepPlayer = null;
-
         /// <summary>
         /// 
         /// </summary>
@@ -34,7 +31,7 @@ namespace LandLib.Core {
         /// <param name="sheepSound">Sheep Sound</param>
         /// <param name="sheepPerSQM">Sheep per sq meter</param>
         /// <param name="seed">Randomness seed</param>
-        public Landscape(double width, double depth, double height, Mesh tree, Mesh sheepGeometry, string sheepSound, double sheepPerSQM, int seed) {
+        public Landscape(double width, double depth, double height, Mesh tree, Mesh sheepGeometry, double sheepPerSQM, int seed) {
             // set the fields
             this.width = width;
             this.depth = depth;
@@ -44,8 +41,7 @@ namespace LandLib.Core {
             this.waterLevel = rnd.NextDouble() * 0.6;
             this.sheepgeometry = sheepGeometry;
             this.sheepPerSQM = sheepPerSQM;
-            this.sheepPlayer = new System.Media.SoundPlayer(sheepSound);
-            }
+                        }
 
         //method to generate the landscape
         public void Generate() {
@@ -171,9 +167,6 @@ namespace LandLib.Core {
             return Point3d.Unset;
             }
 
-        public void Dispose() {
-            this.sheepPlayer.Dispose(); 
-            }
         }
     }
 
