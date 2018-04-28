@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using Grasshopper.Kernel;
 using Rhino.Geometry;
 
-namespace IntroGH.Kangaroo.GH {
+namespace LandLib.Plugin {
     public class ChargeGoal : GH_Component {
 
         //constructor 

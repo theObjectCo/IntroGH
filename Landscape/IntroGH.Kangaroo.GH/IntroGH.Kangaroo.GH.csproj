@@ -40,6 +40,10 @@
       <HintPath>..\packages\Grasshopper.0.9.76\lib\net35\Grasshopper.dll</HintPath>
       <Private>False</Private>
     </Reference>
+    <Reference Include="KangarooSolver">
+      <HintPath>..\..\..\..\..\..\AppData\Roaming\Grasshopper\Libraries\Kangaroo and Plankton\KangarooSolver.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
     <Reference Include="RhinoCommon, Version=5.1.30000.16, Culture=neutral, PublicKeyToken=552281e97c755530, processorArchitecture=MSIL">
       <HintPath>..\packages\RhinoCommon.5.12.50810.13095\lib\net35\RhinoCommon.dll</HintPath>
       <Private>False</Private>
@@ -55,19 +59,18 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ChargeGoal.cs" />
-    <Compile Include="Class1.cs" />
     <Compile Include="FrictionFloor.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\CustomGoals\IntroGH.Kangaroo.Core.csproj">
       <Project>{18ac3650-0e9b-427f-a81d-71dcc6c422c7}</Project>
       <Name>IntroGH.Kangaroo.Core</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="app.config" />
-    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\RhinoCommon.5.12.50810.13095\build\net35\RhinoCommon.targets" Condition="Exists('..\packages\RhinoCommon.5.12.50810.13095\build\net35\RhinoCommon.targets')" />

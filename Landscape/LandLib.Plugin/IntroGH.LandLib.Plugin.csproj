@@ -41,10 +41,6 @@
       <HintPath>..\packages\Grasshopper.0.9.76\lib\net35\Grasshopper.dll</HintPath>
       <Private>False</Private>
     </Reference>
-    <Reference Include="KangarooSolver">
-      <HintPath>C:\Users\Mateusz\AppData\Roaming\Grasshopper\Libraries\Kangaroo and Plankton\KangarooSolver.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
     <Reference Include="RhinoCommon, Version=5.1.30000.16, Culture=neutral, PublicKeyToken=552281e97c755530, processorArchitecture=MSIL">
       <HintPath>..\packages\RhinoCommon.5.12.50810.13095\lib\net35\RhinoCommon.dll</HintPath>
       <Private>False</Private>
@@ -64,11 +60,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\CustomGoals\IntroGH.Kangaroo.Core.csproj">
-      <Project>{18ac3650-0e9b-427f-a81d-71dcc6c422c7}</Project>
-      <Name>IntroGH.Kangaroo.Core</Name>
-      <Private>False</Private>
-    </ProjectReference>
     <ProjectReference Include="..\LandLib.Core\IntroGH.LandLib.Core.csproj">
       <Project>{79037d1b-5ba2-4db4-8989-294ef6be2caf}</Project>
       <Name>IntroGH.LandLib.Core</Name>
